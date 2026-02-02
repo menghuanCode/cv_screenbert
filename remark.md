@@ -1,5 +1,5 @@
 screenbert/
-├─ data/arrow/          ← 步骤 1 生成的 Arrow 数据
+├─ data/arrow/          ← 步骤 1 生成的 Arrow 数据(含 png, dom, label, target_idx）
 ├─ config/
 │   ├─ screenbert_base/ ← 模型配置（空文件夹即可，代码会自动初始化）
 ├─ build_arrow.py       ← 已给

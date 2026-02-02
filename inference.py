@@ -34,12 +34,12 @@ def main():
     
     result = {
         "action": action_map[action_id],
-        "target": dom_json.get("dom", [])[logits.argmax(-1).item()].get("id", "")
+        "target": ""        # 暂时留空，侯勋可训练[元素定位头]或规则补
     }
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()
 
 
