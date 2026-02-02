@@ -1,0 +1,59 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "png": {
+      "dtype": "binary",
+      "_type": "Value"
+    },
+    "dom": {
+      "dom": {
+        "feature": {
+          "h": {
+            "dtype": "float64",
+            "_type": "Value"
+          },
+          "id": {
+            "dtype": "string",
+            "_type": "Value"
+          },
+          "t": {
+            "dtype": "string",
+            "_type": "Value"
+          },
+          "txt": {
+            "dtype": "string",
+            "_type": "Value"
+          },
+          "w": {
+            "dtype": "float64",
+            "_type": "Value"
+          },
+          "x": {
+            "dtype": "float64",
+            "_type": "Value"
+          },
+          "y": {
+            "dtype": "float64",
+            "_type": "Value"
+          }
+        },
+        "_type": "List"
+      },
+      "node": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "start": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "hash": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
