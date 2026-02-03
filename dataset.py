@@ -1,6 +1,18 @@
-# dataset.py
+"""
+ScreenBERT 数据集处理
+负责从 Arrow 格式加载数据，并将原始数据转换为模型输入格式
+"""
+import os
+import json
+import io
+from typing import Dict, List, Optional, Union
+
 import torch
 from torch.utils.data import Dataset
+from PIL import Image
+import numpy as np
+from datasets import load_from_disk, DatasetDict
+from transformers import AutoTokenizer
 
 class ScreenDataset(Dataset):
     def __init__(self, jsonl_path, model):
@@ -10,10 +22,15 @@ class ScreenDataset(Dataset):
               model: ScreenBERT 实例，用于调用 prepare_inputs
         """
 
-        import json
+        self.data = []
         with open(jsonl_path, "r", encoding="utf-8") as f:
-            self.data = [json.loads(line) for line in f]
+            for line in f:
+                line = line.strip()
+                if line:
+                    self.data.append(json.loads(line))
+
         self.model = model
+        print(f"加载了 {len(self.data)} 条样本 from {jsonl_path}")
 
     def __len__(self):
         return len(self.data)
@@ -26,6 +43,7 @@ class ScreenDataset(Dataset):
             png_bytes = f.read()
 
         # 调用model 的预处理（单条）
+        # 假设 prepare_inputs 返回的是 dict，每个 value 是 [1, ...] 的 tensor
         inputs = self.model.prepare_inputs(png_bytes, item["dom"])
 
         return {
