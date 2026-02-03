@@ -109,13 +109,14 @@ class ScreenBERT(PreTrainedModel):
         }
 
     # todo 实现了 视觉-文本特征融合分类
-    def forward(self, pixel_values, input_ids, attention_mask, labels=None, target_idx=None):
+    def forward(self, pixel_values, input_ids, attention_mask, action_labels=None, target_labels=None):
         """
            Args:
                pixel_values: [B, 3, 224, 224]
                input_ids: [B, seq_len]
                attention_mask: [B, seq_len]
-               labels: [B] (可选)
+               action_labels: [B] 动作标签（可选）
+               target_labels: [B] 目标标签（可选）
            Returns:
                SequenceClassifierOutput: HuggingFace 标准输出格式
            """
@@ -136,12 +137,13 @@ class ScreenBERT(PreTrainedModel):
 
         # 双任务损失
         total_loss = None
-        if labels is not None and target_idx is not None:
+        if action_labels is not None and target_labels is not None:
             # ✅ 添加范围保护
-            target_idx = torch.clamp(target_idx, 0, self.config.max_dom_len - 1)
+            # target_idx = torch.clamp(target_idx, 0, self.config.max_dom_len - 1)
+            loss_fct = torch.nn.CrossEntropyLoss()
 
-            loss_action = torch.nn.functional.cross_entropy(logits_action, labels)
-            loss_target = torch.nn.functional.cross_entropy(logits_target, target_idx)
+            loss_action = loss_fct(logits_action, action_labels)
+            loss_target = loss_fct(logits_target, target_labels)
 
             # total_loss = loss_action + loss_target      # 可加权：0.7 * loss_action + 0.3 * loss_target
             # ✅ 配置化权重

@@ -1,5 +1,6 @@
 
 import argparse
+import torch
 from model import ScreenBERT, ScreenBERTConfig
 # from data_collator import ScreenCollator
 from datasets import load_from_disk
@@ -36,42 +37,30 @@ def main():
 
 
     # ========== 初始化模型（这里 ScreenBERT 是模型，不是 Trainer）==========
+    print("初始化模型...")
     config =ScreenBERTConfig()
     model = ScreenBERT(config)
 
 
     # 2. 用 ScreenDataset（它内部调用 model.prepare_inputs）
+    print(f"\n加载数据集:{args.data}")
     train_ds = ScreenDataset("data/arrow", split="train", model=model)
     val_ds = ScreenDataset("data/arrow", split="validation", model=model)
 
+    print(f"\n训练集：{len(train_ds)} 条")
+    print(f"验证集：{len(val_ds)} 条")
     
-    print(f"Available splits: {list(dataset_dict.keys())}")
-    for key in dataset_dict.keys():
-        print(f"  {key}: {len(dataset_dict[key])} samples")
-
-    # 数据集
-    train_ds = dataset_dict["train"]
-    val_ds = dataset_dict.get("validation") or dataset_dict.get("test") # 可选
-
-    if len(train_ds) == 0:
-        raise ValueError("训练集为空！")
-
-
-    print("\n===== 测试 DataCollator =====")
-    collator = ScreenCollator()
-
-    # 取前 2 条样本测试
-    sample_batch = [train_ds[i] for i in range(min(2, len(train_ds)))]
-    print(f"原始样本数: {len(sample_batch)}")
-    print(f"原始样本 keys: {sample_batch[0].keys() if sample_batch else '空'}")
-
-    # 测试 collator
-    processed = collator(sample_batch)
-    print(f"处理后类型: {type(processed)}")
-    print(f"处理后 keys: {processed.keys() if isinstance(processed, dict) else 'N/A'}")
-    print(f"处理后 batch size: {len(processed.get('input_ids', [])) if isinstance(processed, dict) else 'N/A'}")
+    
+    # 测试一条样本
+    print("\n===== 测试 Dataset =====")
+    sample = train_ds[0]
+    print(f"Sample keys: {sample.keys()}")
+    for k, v in sample.items():
+        if isinstance(v, torch.Tensor):
+            print(f"  {k}: shape={v.shape}, dtype={v.dtype}")
+        else:
+            print(f"  {k}: {type(v)} = {v}")
     print("===== 测试通过 =====\n")
-
 
 
     training_args = TrainingArguments(
