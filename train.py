@@ -1,13 +1,8 @@
-import os, datetime, argparse
-from datasets import load_from_disk
-from transformers import (
-    TrainingArguments,
-    Trainer,
-    set_send
-)
+
 from model import ScreenBERT, ScreenBERTConfig
-# 批处理 collator
 from data_collator import ScreenCollator
+from datasets import load_from_disk
+from transformers import Trainer, TrainingArguments
 
 
 # 初始化

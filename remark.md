@@ -8,3 +8,9 @@ screenbert/
 ├─ model.py             ← ScreenBERT 双塔模型（下面）
 ├─ data_collator.py     ← 批处理 collator（下面）
 └─ requirements.txt     ← 依赖清单（下面）
+
+### 训练命令
+```bash
+python train.py --data data/arrow --output ckpt/screenbert --epoch 3 --batch 8 --fp16
+python inference.py --model ckpt/screenbert --png dataset/keyshot/E_date_2025-06-01.png
+```
