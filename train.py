@@ -1,10 +1,12 @@
 
 import argparse
 from model import ScreenBERT, ScreenBERTConfig
-from data_collator import ScreenCollator
+# from data_collator import ScreenCollator
 from datasets import load_from_disk
 from transformers import Trainer, TrainingArguments
 from dataset import ScreenDataset
+
+from transformers import DefaultDataCollator
 
 
 
@@ -38,9 +40,9 @@ def main():
     model = ScreenBERT(config)
 
 
-    # 加载数据集字典
-    print(f"加载数据集字典：{args.data}")
-    dataset_dict = load_from_disk(args.data)
+    # 2. 用 ScreenDataset（它内部调用 model.prepare_inputs）
+    train_ds = ScreenDataset("data/arrow", split="train", model=model)
+    val_ds = ScreenDataset("data/arrow", split="validation", model=model)
 
     
     print(f"Available splits: {list(dataset_dict.keys())}")
@@ -111,7 +113,8 @@ def main():
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        data_collator=ScreenCollator()
+        # data_collator=ScreenCollator()
+        data_collator=None,      # 因为 Dataset 已经返回 tensor，用默认 collator
     )
 
     print("开始训练...")
