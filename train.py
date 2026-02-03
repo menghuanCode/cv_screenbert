@@ -13,11 +13,11 @@ from transformers import DefaultDataCollator
 # ========== 自定义 Trainer（类名改为 ScreenBERTTrainer，避免冲突）==========
 class ScreenBERTTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **keyargs):
-        # 弹出标签
-        action_labels = inputs.pop("action_labels")
-        target_labels = inputs.pop("target_labels")
+        # 安全弹出标签
+        action_labels = inputs.pop("action_labels", None)
+        target_labels = inputs.pop("target_labels", None)
 
-        # 向前
+        # 向前传播
         outputs = model(**inputs, action_labels=action_labels, target_labels=target_labels)
         loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
         return (loss, outputs) if return_outputs else loss
