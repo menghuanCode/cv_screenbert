@@ -1,5 +1,6 @@
 # 推理代码
 # 这是推理/预测阶段的代码，用于加载训练好的模型并对单张截图进行预测。相比训练代码，这里更轻量，核心是加载权重 + 单条推理：
+import torch
 import argparse, json, hashlib
 from PIL import Image
 from model import ScreenBERT
@@ -24,8 +25,13 @@ def main():
 
 
     with torch.no_grad():                           # 禁用梯度计算，省显存
-        logits = model(**inputs).logits             # [1, num_classes]
-    action_id = logits.argmax(-1).item()            # 取最大值的索引 → Python int
+        outputs = model(**inputs)
+        logits_action = outputs.logits_action
+        logits_target = outputs.logits_target
+
+
+    action_id = logits_action.argmax(-1).item()
+    target_id = logits_target.argmax(-1).item()
 
 
     # 这段代码将动作ID解码为可读动作，并尝试定位操作目标元素
@@ -34,7 +40,7 @@ def main():
     
     result = {
         "action": action_map[action_id],
-        "target": ""        # 暂时留空，侯勋可训练[元素定位头]或规则补
+        "target": dom_json.get("dom", [])[target_id].get("id", "") if 0 <= target_id < len(dom_json.get("dom", [])) else "",
     }
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
