@@ -7,7 +7,13 @@ from datasets import load_from_disk
 from transformers import Trainer, TrainingArguments
 from dataset import ScreenDataset
 
+import os
 from transformers import DefaultDataCollator
+
+
+
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+os.environ["HF_HOME"] = "/root/.cache/huggingface"
 
 
 
@@ -17,6 +23,14 @@ class ScreenBERTTrainer(Trainer):
         # 安全弹出标签
         action_labels = inputs.pop("action_labels", None)
         target_labels = inputs.pop("target_labels", None)
+
+        # 调试：看看标签是否存在
+        if action_labels is None or target_labels is None:
+            print(f"警告：action_labels={action_labels}, target_labels={target_labels}")
+            # 临时用 0 填充，避免崩溃
+            # batch_size = inputs["pixel_values"].shape[0]
+            # action_labels = torch.zeros(batch_size, dtype=torch.long, device=inputs["pixel_values"].device)
+            # target_labels = torch.zeros(batch_size, dtype=torch.long, device=inputs["pixel_values"].device)
 
         # 向前传播
         outputs = model(**inputs, action_labels=action_labels, target_labels=target_labels)
@@ -49,6 +63,21 @@ def main():
 
     print(f"\n训练集：{len(train_ds)} 条")
     print(f"验证集：{len(val_ds)} 条")
+    
+    # 加载数据集后，检查标签范围
+    print("\n===== 检查标签范围 =====")
+    actions = []
+    targets = []
+    for i in range(min(100, len(train_ds))):  # 抽查100条
+        sample = train_ds[i]
+        actions.append(sample['action_labels'].item())
+        targets.append(sample['target_labels'].item())
+
+    print(f"Action 范围: {min(actions)} ~ {max(actions)}")
+    print(f"Target 范围: {min(targets)} ~ {max(targets)}")
+    print(f"Action 唯一值: {sorted(set(actions))}")
+    print(f"Target 唯一值: {sorted(set(targets))[:20]}...")  # 前20个
+    print("========================\n")
     
     
     # 测试一条样本
