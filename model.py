@@ -32,7 +32,7 @@ class ScreenBERTConfig(PretrainedConfig):
         super().__init__(**kwargs)
         self.hidden_size = 768              # 隐藏层维度（BERT-base 标准）
         self.num_labels = 5                 # 分类头输出维度（5 个动作类别）
-        self.max_dom_len = 256              # DOM 元素最大序列长度
+        self.max_dom_len = 1280              # DOM 元素最大序列长度
         self.dropout = 0.1                  # Dropout 比率
         self.loss_alpha = 0.7               # 动作权重
         self.loss_beta = 0.3                # 目标权重
@@ -83,11 +83,22 @@ class ScreenBERT(PreTrainedModel):
         pixel_values = transform(img).unsqueeze(0) # [1, 3, 224, 224]
 
         # ========== 2. DOM 文本预处理 ==========
-        # 改进：保留更多结构化信息
-        elements = dom_json[:self.config.max_dom_len]        # 截断元素数量
-
-        # 构造带位置标记的文本（示例：<button>登录</button> [0,0,100,50]）
-        dom_text = ' '.join([f"<{n.get('tag', 'div')}>{n.get('txt', '')}</>" for n in elements])
+        elements = dom_json[:self.config.max_dom_len]
+        
+        # 改进：编码更多结构化信息
+        text_parts = []
+        for i, elem in enumerate(elements):
+            tag = elem.get('t', 'div').lower()
+            elem_id = elem.get('id', '')
+            txt = elem.get('txt', '')[:30]  # 限制长度
+            idx = elem.get('idx', i)
+            visible = 'V' if elem.get('visible', True) else 'H'  # Visible/Hidden
+            
+            # 格式: [idx:visible] <tag id="id">text</>
+            part = f"[{idx}:{visible}]<{tag} id='{elem_id}'>{txt}</>"
+            text_parts.append(part)
+        
+        dom_text = ' | '.join(text_parts)  # 用 | 分隔更清晰
 
         # Tokenize （使用实例的 tokenizer）
         dom_inputs = self.tokenizer(
@@ -100,10 +111,12 @@ class ScreenBERT(PreTrainedModel):
 
         # ============== 3. 返回格式修正（关键！） ========================
 
+        # 返回时带上元素列表（用于后续映射 target）
         return {
             "pixel_values": pixel_values,
             "input_ids": dom_inputs["input_ids"],
             "attention_mask": dom_inputs["attention_mask"],
+            "elements": elements,  # 返回元素列表，用于推理时查找
             # 可选：返回 bbox 信息(如果模型支持)
             # "bbox": self._process_bbox(elements)
         }
@@ -148,6 +161,14 @@ class ScreenBERT(PreTrainedModel):
             # total_loss = loss_action + loss_target      # 可加权：0.7 * loss_action + 0.3 * loss_target
             # ✅ 配置化权重
             total_loss = self.config.loss_alpha * loss_action + self.config.loss_beta * loss_target
+
+            # ✅ 添加日志（只在训练时打印）
+            if self.training:
+                print(f"[Train] loss={total_loss.item():.4f}, "
+                    f"action={loss_action.item():.4f}, "
+                    f"target={loss_target.item():.4f}, "
+                    f"target_labels={target_labels.tolist()}")
+    
         # 计算损失
         return ScreenBERTOutput(
             loss=total_loss,

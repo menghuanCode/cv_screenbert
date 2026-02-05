@@ -11,6 +11,17 @@ screenbert/
 
 ### 训练命令
 ```bash
+export HF_ENDPOINT=https://hf-mirror.com
+export HF_HOME="/root/autodl-tmp/hf_cache"  # 指定缓存目录
+
 python train.py --data data/arrow --output ckpt/screenbert --epoch 3 --batch 8 --fp16
-python inference.py --model ckpt/screenbert --png dataset/keyshot/E_date_2025-06-01.png
+```
+
+### 推理命令
+```bash
+python inference.py \
+        --model ckpt/screenbert \
+        --png "dataset/keyshot/${base}.png" \
+        --dom "dataset/keyjson/${base}.json"
+    echo "-------------------"
 ```

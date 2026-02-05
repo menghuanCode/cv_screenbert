@@ -13,6 +13,7 @@ from PIL import Image
 import numpy as np
 from datasets import load_from_disk, DatasetDict
 from transformers import AutoTokenizer
+from collections import Counter
 
 class ScreenDataset(Dataset):
     def __init__(
@@ -34,10 +35,131 @@ class ScreenDataset(Dataset):
         self.model = model
         self.image_size = image_size
         self.max_length = max_length
-        
-         # 调用 _load_arrow 进行过滤加载
-        self._load_arrow(data_path, split)
 
+        
+        # 调用 _load_arrow 进行过滤加载
+        self._load_arrow(data_path, split)
+        self.statistics()           # 初始化时自动统计
+        self.validate_targets()     # 快速检查 target 有效性
+
+    def validate_targets(self):
+        """验证所有 target 是否指向有效元素"""
+        invalid_count = 0
+        
+        for i, item in enumerate(self.data):
+            target_str = item.get("target", "0")
+            try:
+                original_idx = int(str(target_str).lstrip('#'))
+            except:
+                original_idx = 0
+            
+            dom_list = self._process_dom(item["dom"])
+            
+            # 找匹配的元素
+            matched = None
+            for j, elem in enumerate(dom_list):
+                if elem.get('idx') == original_idx:
+                    matched = elem
+                    new_idx = j
+                    break
+            
+            if matched is None:
+                print(f"样本 {i}: target={original_idx} 未找到")
+                invalid_count += 1
+            else:
+                # 检查元素质量
+                elem_id = matched.get('id', '')
+                elem_tag = matched.get('t', '')
+                elem_txt = matched.get('txt', '')[:30]
+                
+                if elem_id == '' and elem_tag in ['SCRIPT', 'STYLE', '#text']:
+                    print(f"样本 {i}: target={original_idx} -> 无效元素 [{elem_tag}] id='{elem_id}' txt='{elem_txt}...'")
+                    invalid_count += 1
+                else:
+                    print(f"样本 {i}: target={original_idx} -> 新索引 {new_idx} [{elem_tag}] id='{elem_id}'")
+        
+        print(f"\n无效 target 比例: {invalid_count}/{len(self.data)} ({invalid_count/len(self.data)*100:.1f}%)")
+        return invalid_count
+
+    def statistics(self):
+        """统计 target_id 分布"""
+        target_ids = []
+        missing_target = 0
+        
+        for sample in self.data:
+            target = sample.get('target', '')
+            
+            # 处理不同格式
+            if isinstance(target, str):
+                # 去掉 # 前缀，转整数
+                clean_target = target.lstrip('#')
+                try:
+                    target_id = int(clean_target) if clean_target else 0
+                except ValueError:
+                    target_id = 0  # 转换失败默认0
+            elif isinstance(target, int):
+                target_id = target
+            else:
+                target_id = 0
+                
+            target_ids.append(target_id)
+            
+            if target_id == 0:
+                missing_target += 1
+        
+        counter = Counter(target_ids)
+        
+        print("=" * 50)
+        print("Target ID 分布统计:")
+        print(f"  缺失/无效 target: {missing_target} ({missing_target/len(target_ids)*100:.1f}%)")
+        print("-" * 50)
+        for target_id, count in sorted(counter.items()):
+            percentage = count / len(target_ids) * 100
+            marker = " ⚠️" if percentage > 30 and target_id == 0 else ""
+            print(f"  ID {target_id:3d}: {count:6d} ({percentage:5.2f}%){marker}")
+        print(f"  总计: {len(target_ids)} 个样本")
+        print("=" * 50)
+        
+        # 警告
+        if counter[0] / len(target_ids) > 0.5:
+            print("\n⚠️ 警告: target=0 占比超过 50%！")
+        if len(counter) <= 2:
+            print("\n❌ 警告: target 种类太少，模型可能无法有效学习！")
+        
+        # 检查第一个样本的 dom 结构
+        sample = self.data[0]
+        dom_list = self._process_dom(sample["dom"])
+        print(f"\nDOM 列表长度: {len(dom_list)}")
+        print(f"前3个元素: {dom_list[:3]}")
+        print(f"target 值: '{sample.get('target')}'")
+        print(f"target 类型: {type(sample.get('target'))}")
+
+        # 验证 target 到底是什么
+        sample = self.data[0]
+        target = sample.get("target")
+        dom_list = self._process_dom(sample["dom"])
+
+        print(f"\n验证 Target:")
+        print(f"  target 值: {target}")
+        print(f"  DOM 长度: {len(dom_list)}")
+
+        # 尝试作为索引
+        try:
+            idx = int(str(target).lstrip('#'))
+            if idx < len(dom_list):
+                elem = dom_list[idx]
+                print(f"  作为索引 {idx}: 元素 id={elem.get('id')}, txt={elem.get('txt', '')[:30]}...")
+            else:
+                print(f"  索引 {idx} 超出范围")
+        except Exception as e:
+            print(f"  作为索引失败: {e}")
+
+        # 尝试作为 id 匹配
+        matches = [i for i, elem in enumerate(dom_list) if str(elem.get('id')) == str(target).lstrip('#')]
+        print(f"  作为 id 匹配: 找到 {len(matches)} 个")        
+        
+        return counter
+        
     def __len__(self):
         return len(self.data)
 
@@ -88,22 +210,25 @@ class ScreenDataset(Dataset):
             
             return dom_list
 
-    def _find_target_index(self, dom_list, target_id):
-        """根据元素 ID 或 selector 找到索引"""
-        if not target_id:
+    def _find_target_index(self, dom_list, target):
+        """根据元素 ID 找到索引"""
+        if not target:
             return 0
         
-        # 尝试匹配 id
+        # 统一转为字符串比较
+        target_str = str(target).lstrip('#.')
+        
+        # 尝试匹配 id（都转为字符串）
         for i, elem in enumerate(dom_list):
-            if elem.get("id") == target_id:
+            elem_id = str(elem.get("id", ""))
+            if elem_id == target_str:
                 return i
         
-        # 尝试匹配 selector（去掉 #）
-        clean_target = target_id.lstrip("#.")
+        # 尝试匹配 txt 内容
         for i, elem in enumerate(dom_list):
-            elem_id = elem.get("id", "")
             elem_txt = elem.get("txt", "")
-            if elem_id == clean_target or clean_target in elem_txt:
+            elem_id = elem.get("id", "")
+            if target_str in str(elem_txt) or target_str in str(elem_id):
                 return i
         
         return 0  # 默认第一个
@@ -125,6 +250,27 @@ class ScreenDataset(Dataset):
         
         # 处理 DOM
         dom_list = self._process_dom(item["dom"])
+
+  
+        # 只保留有 id 或可见的元素，重新编号
+        valid_elements = [(i, e) for i, e in enumerate(dom_list) 
+                        if e.get('id') or e.get('visible')]
+        
+        # 创建映射：原始 idx -> 新索引
+        idx_map = {orig_idx: new_idx for new_idx, (orig_idx, _) in enumerate(valid_elements)}
+        
+        # 获取原始 target
+        raw_target = item.get('target', 0)
+        try:
+            original_idx = int(str(raw_target).lstrip('#'))
+        except:
+            original_idx = 0
+        
+        # 映射到新索引（如果在有效列表中）
+        target_idx = idx_map.get(original_idx, 0)
+        
+        # 截断到 max_dom_len，但用 valid_elements
+        elements = [e for _, e in valid_elements[:1280]]
         
         # 使用 model.prepare_inputs 处理文本
         if self.model is not None and hasattr(self.model, 'prepare_inputs'):
@@ -132,6 +278,8 @@ class ScreenDataset(Dataset):
             inputs = self._prepare_text_inputs(dom_list)
         else:
             inputs = self._simple_tokenize(dom_list)
+
+        
         
         # 组装结果
         result = {
@@ -142,7 +290,7 @@ class ScreenDataset(Dataset):
         
         # 添加标签
         action = item.get("action", -1)
-        target = item.get("target", "")
+        target = item.get("target", "")  # 这是字符串 "4"
         
         # target 转为索引
         if isinstance(target, str) and target:

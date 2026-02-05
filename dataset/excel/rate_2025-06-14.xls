@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+<Author>NetSuite</Author>
+<LastAuthor>NetSuite</LastAuthor>
+<Company>NetSuite</Company>
+</DocumentProperties>
+<Styles>
+<Style ss:ID="company">
+<Alignment ss:Horizontal="Center"/>
+<Font ss:Bold="1"/>
+</Style> <Style ss:ID="error">
+<Alignment ss:Horizontal="Center"/>
+<Interior ss:Color="#d04040" ss:Pattern="Solid"/>
+<Font ss:Bold="1"/>
+</Style> <Style ss:ID="header">
+<Alignment ss:Horizontal="Center"/>
+<Font ss:Size="7" ss:Bold="1"/>
+<Interior ss:Color="#d0d0d0" ss:Pattern="Solid"/>
+</Style> <Style ss:ID="Default" ss:Name="Normal">
+<Alignment ss:Vertical="Bottom"/>
+<Borders/>
+<Font ss:FontName="Arial" ss:Size="8"/>
+<Interior/>
+<NumberFormat/>
+<Protection/>
+</Style>
+<Style ss:ID="s__TIMEOFDAY"><NumberFormat ss:Format="Medium Time"/></Style>
+<Style ss:ID="s__DATETIME"><NumberFormat ss:Format="General Date"/></Style>
+<Style ss:ID="s__DATETIMETZ"><NumberFormat ss:Format="General Date"/></Style>
+<Style ss:ID="s__DATE"><NumberFormat ss:Format="Short Date"/>
+</Style><Style ss:ID="s__text"></Style><Style ss:ID="s__currency"><NumberFormat ss:Format="Currency"/></Style>
+<Style ss:ID="s__percent"><NumberFormat ss:Format="Percent"/></Style>
+<Style ss:ID="s1_b_text"><Alignment ss:Indent="1"/><Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#000000" ss:Bold="1"/></Style>
+<Style ss:ID="s_b_text"><Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#000000" ss:Bold="1"/></Style>
+<Style ss:ID="s2__text"><Alignment ss:Indent="2"/></Style>
+<Style ss:ID="s_b_currency"><Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#000000" ss:Bold="1"/><NumberFormat ss:Format="Currency"/></Style>
+<Style ss:ID="s_currency_nosymbol"><Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#000000" /><NumberFormat ss:Format="#,##0.00_);[Red]\(#,##0.00\)"/></Style>
+<Style ss:ID="s1__text"><Alignment ss:Indent="1"/></Style>
+<Style ss:ID="s_b_currency_X"><Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#000000" ss:Bold="1"/><Interior ss:Color="#f0e0e0" ss:Pattern="Solid"/><NumberFormat ss:Format="Currency"/></Style>
+<Style ss:ID="s__currency_en_CA"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Can$&quot;#,##0.00_);(&quot;Can$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_is_IS"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;ISK&quot;#,##0.00_);(&quot;ISK&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_zh_HK"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;HK$&quot;#,##0.00_);(&quot;HK$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_zh_TW"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;NT$&quot;#,##0.00_);(&quot;NT$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_SG"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;S$&quot;#,##0.00_);(&quot;S$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_es_MX"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;MEX$&quot;#,##0.00_);(&quot;MEX$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ja_JP"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;¥&quot;#,##0.00_);(&quot;¥&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_zh_CN"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Y&quot;#,##0.00_);(&quot;Y&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_zh_MO"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;MOP&quot;#,##0.00_);(&quot;MOP&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_GB"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;£&quot;#,##0.00_);(&quot;£&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_NZ"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;$NZ&quot;#,##0.00_);(&quot;$NZ&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_AE"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;AED&quot;#,##0.00_);(&quot;AED&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ar_EG"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;EGP&quot;#,##0.00_);(&quot;EGP&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ko_KR"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;KRW&quot;#,##0.00_);(&quot;KRW&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_PH"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;PHP&quot;#,##0.00_);(&quot;PHP&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_US"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;$&quot;#,##0.00_);(&quot;$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ar_SA"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;SRl&quot;#,##0.00_);(&quot;SRl&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_de_CH"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;SwF&quot;#,##0.00_);(&quot;SwF&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_fr_PF"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;XPF&quot;#,##0.00_);(&quot;XPF&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_es_DO"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;RD$&quot;#,##0.00_);(&quot;RD$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_he_IL"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;ILS&quot;#,##0.00_);(&quot;ILS&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_hu_HU"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Ft&quot;#,##0.00_);(&quot;Ft&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_id_ID"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Rp&quot;#,##0.00_);(&quot;Rp&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ms_MY"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;RM&quot;#,##0.00_);(&quot;RM&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_sv_SE"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;SKr&quot;#,##0.00_);(&quot;SKr&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_th_TH"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;THB&quot;#,##0.00_);(&quot;THB&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ur_PK"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Pra&quot;#,##0.00_);(&quot;Pra&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_es_PE"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;PEN&quot;#,##0.00_);(&quot;PEN&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_pl_PL"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Zl&quot;#,##0.00_);(&quot;Zl&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ru_RU"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;RUB&quot;#,##0.00_);(&quot;RUB&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ru_KZ"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;KZT&quot;#,##0.00_);(&quot;KZT&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_KE"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;K Sh&quot;#,##0.00_);(&quot;K Sh&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_NG"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;NGN&quot;#,##0.00_);(&quot;NGN&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_BB"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;BDS$&quot;#,##0.00_);(&quot;BDS$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_en_AU"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;$A&quot;#,##0.00_);(&quot;$A&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_cs_CZ"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;CZK&quot;#,##0.00_);(&quot;CZK&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_es_CO"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Col$&quot;#,##0.00_);(&quot;Col$&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_tr_TR"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;TRY&quot;#,##0.00_);(&quot;TRY&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_vi_VN"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;VND&quot;#,##0.00_);(&quot;VND&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_ms_BN"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;BND&quot;#,##0.00_);(&quot;BND&quot;#,##0.00)"/></Style>
+<Style ss:ID="s__currency_am_ET"><Alignment ss:Vertical="Center" ss:Horizontal="Right"/><NumberFormat ss:Format="&quot;Br&quot;#,##0.00_);(&quot;Br&quot;#,##0.00)"/></Style>
+</Styles>
+<Worksheet ss:Name="List 1">
+<Table><Row>
+<Cell ss:StyleID="header"><Data ss:Type="String">本位币</Data></Cell>
+<Cell ss:StyleID="header"><Data ss:Type="String">来源货币</Data></Cell>
+<Cell ss:StyleID="header"><Data ss:Type="String">汇率</Data></Cell>
+<Cell ss:StyleID="header"><Data ss:Type="String">生效日期</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AED</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.9521</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AUD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">4.6224</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BBD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">3.5653</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BDT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.0589</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">5.584548</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BRL</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.2688</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CAD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">5.1959</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CHF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">8.7243</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNH</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.0001</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">COP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.001739</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CZK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.32814</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DKK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.0937</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.1222</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EGP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.144375</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ETB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.0527</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">8.162</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">GBP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">9.6844</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HKD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.9164</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HUF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.020216</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">IDR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000441</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ILS</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">2.056914</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ISK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.0567</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.049861</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KES</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.055588</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KRW</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.005234</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KZT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.014098</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.8893</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MXN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.371609</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MYR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.6935</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NGN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.004517</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NZD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">4.2866</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PEN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.983464</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PHP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.1294</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PKR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.025478</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PLN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.924668</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">RUB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.093078</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SAR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.9118</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SEK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.7509</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SGD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">5.5783</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">THB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.2205</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TRY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.1828</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TWD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.2411</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">7.1848</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">VND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000276</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">XPF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.0688</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AED</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.239169</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AUD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.566332</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BBD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.436817</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BDT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.007216</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.684213</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BRL</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.155452</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CAD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.636596</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CHF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.068892</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNH</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.122531</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.122519</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">COP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000213</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CZK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.040203</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DKK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.133999</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.014972</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EGP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.017689</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ETB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.006457</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">GBP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.186523</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HKD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.112276</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HUF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.002477</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">IDR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000054</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ILS</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.252011</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ISK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.006947</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.006109</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KES</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.006811</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KRW</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000641</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KZT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.001727</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.108956</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MXN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.045529</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MYR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.207486</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NGN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000553</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NZD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.52519</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PEN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.243012</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PHP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.015854</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PKR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.003122</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PLN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.235808</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">RUB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.011404</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SAR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.234232</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SEK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.092</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SGD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.683448</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">THB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.027015</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TRY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.022396</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TWD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.029539</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.880274</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">VND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000034</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">XPF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.008429</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AED</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">39.150839</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AUD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">92.705722</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BBD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">71.504783</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BDT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.181284</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">112.002326</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BRL</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">25.446742</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CAD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">104.207697</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CHF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">174.972423</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNH</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">20.057761</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">20.055755</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">COP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.034877</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CZK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">6.581095</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DKK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">21.934979</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">2.450813</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EGP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">2.89555</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ETB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.056938</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">163.695072</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">GBP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">194.227954</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HKD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">18.379094</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HUF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.405447</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">IDR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.008845</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ILS</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">41.252963</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ISK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.137161</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KES</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.114859</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KRW</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.104972</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KZT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.282746</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">17.835583</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MXN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">7.452899</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MYR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">33.964421</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NGN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.090592</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NZD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">85.970999</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PEN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">39.779868</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PHP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">2.595215</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PKR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.510981</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PLN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">38.60067</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">RUB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.86675</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SAR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">38.342592</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SEK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">15.059866</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SGD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">111.877018</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">THB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">4.422294</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TRY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">3.666192</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TWD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">4.835443</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">144.096589</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">VND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.005535</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">XPF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.379836</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AED</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.271699</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">AUD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.643358</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BBD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.496228</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BDT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.008198</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.777273</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">BRL</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.176595</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CAD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.723179</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CHF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.214272</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNH</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.139197</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CNY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.139183</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">COP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000242</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">CZK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.045671</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DKK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.152224</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">DOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.017008</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EGP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.020095</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ETB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.007335</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">EUR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.136009</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">GBP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1.347901</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HKD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.127547</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">HUF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.002814</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">IDR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000061</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ILS</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.286287</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">ISK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.007892</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">JPY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.00694</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KES</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.007737</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KRW</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000728</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">KZT</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.001962</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MOP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.123775</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MXN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.051722</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">MYR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.235706</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NGN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000629</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">NZD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.596621</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PEN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.276064</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PHP</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.01801</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PKR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.003546</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">PLN</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.267881</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">RUB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.012955</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SAR</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.26609</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SEK</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.104512</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">SGD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.776403</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">THB</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.03069</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TRY</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.025443</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">TWD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.033557</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">VND</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.000038</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="s__text"><Data ss:Type="String">USD</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="String">XPF</Data></Cell>
+<Cell ss:StyleID="s__text"><Data ss:Type="Number">0.009576</Data></Cell>
+<Cell ss:StyleID="s__DATE"><Data ss:Type="DateTime">2025-06-01T00:00:00</Data></Cell>
+</Row>
+</Table>
+</Worksheet>
+</Workbook>

@@ -10,10 +10,15 @@ from dataset import ScreenDataset
 import os
 from transformers import DefaultDataCollator
 
+from collections import Counter
+
 
 
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 os.environ["HF_HOME"] = "/root/.cache/huggingface"
+
+# export HF_ENDPOINT=https://hf-mirror.com
+# export HF_HOME="/root/autodl-tmp/hf_cache"  # 指定缓存目录
 
 
 
@@ -85,6 +90,7 @@ def main():
     sample = train_ds[0]
     print(f"Sample keys: {sample.keys()}")
     for k, v in sample.items():
+        
         if isinstance(v, torch.Tensor):
             print(f"  {k}: shape={v.shape}, dtype={v.dtype}")
         else:
