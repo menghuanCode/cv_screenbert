@@ -12,12 +12,12 @@
           "dtype": "float64",
           "_type": "Value"
         },
-        "id": {
-          "dtype": "string",
-          "_type": "Value"
-        },
         "idx": {
           "dtype": "int64",
+          "_type": "Value"
+        },
+        "selector": {
+          "dtype": "string",
           "_type": "Value"
         },
         "t": {

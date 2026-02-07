@@ -68,15 +68,15 @@ class ScreenDataset(Dataset):
                 invalid_count += 1
             else:
                 # 检查元素质量
-                elem_id = matched.get('id', '')
+                elem_selector  = matched.get('selector', '')
                 elem_tag = matched.get('t', '')
                 elem_txt = matched.get('txt', '')[:30]
                 
-                if elem_id == '' and elem_tag in ['SCRIPT', 'STYLE', '#text']:
-                    print(f"样本 {i}: target={original_idx} -> 无效元素 [{elem_tag}] id='{elem_id}' txt='{elem_txt}...'")
+                if elem_selector == '' and elem_tag in ['SCRIPT', 'STYLE', '#text']:
+                    print(f"样本 {i}: target={original_idx} -> 无效元素 [{elem_tag}] id='{elem_selector}' txt='{elem_txt}...'")
                     invalid_count += 1
                 else:
-                    print(f"样本 {i}: target={original_idx} -> 新索引 {new_idx} [{elem_tag}] id='{elem_id}'")
+                    print(f"样本 {i}: target={original_idx} -> 新索引 {new_idx} [{elem_tag}] id='{elem_selector}'")
         
         print(f"\n无效 target 比例: {invalid_count}/{len(self.data)} ({invalid_count/len(self.data)*100:.1f}%)")
         return invalid_count
@@ -148,15 +148,15 @@ class ScreenDataset(Dataset):
             idx = int(str(target).lstrip('#'))
             if idx < len(dom_list):
                 elem = dom_list[idx]
-                print(f"  作为索引 {idx}: 元素 id={elem.get('id')}, txt={elem.get('txt', '')[:30]}...")
+                print(f"  作为索引 {idx}: 元素 selector={elem.get('selector')}, txt={elem.get('txt', '')[:30]}...")
             else:
                 print(f"  索引 {idx} 超出范围")
         except Exception as e:
             print(f"  作为索引失败: {e}")
 
         # 尝试作为 id 匹配
-        matches = [i for i, elem in enumerate(dom_list) if str(elem.get('id')) == str(target).lstrip('#')]
-        print(f"  作为 id 匹配: 找到 {len(matches)} 个")        
+        matches = [i for i, elem in enumerate(dom_list) if str(elem.get('selector')) == str(target).lstrip('#')]
+        print(f"  作为 selector 匹配: 找到 {len(matches)} 个")        
         
         return counter
         
@@ -172,7 +172,13 @@ class ScreenDataset(Dataset):
         action_counts = {}
         for item in raw_dataset:
             action = item.get("action", -1)
-            if action != -1:
+            if action == -1:
+                continue
+
+            # 复制少数类
+            repeat = 10 if action in [0, 1] else 1  # click, type 复制10倍
+
+            for _ in range(repeat):
                 self.data.append(item)
                 action_counts[action] = action_counts.get(action, 0) + 1
         
@@ -211,7 +217,7 @@ class ScreenDataset(Dataset):
             return dom_list
 
     def _find_target_index(self, dom_list, target):
-        """根据元素 ID 找到索引"""
+        """根据元素 selector 找到索引"""
         if not target:
             return 0
         
@@ -220,15 +226,15 @@ class ScreenDataset(Dataset):
         
         # 尝试匹配 id（都转为字符串）
         for i, elem in enumerate(dom_list):
-            elem_id = str(elem.get("id", ""))
+            elem_id = str(elem.get("selector", ""))
             if elem_id == target_str:
                 return i
         
         # 尝试匹配 txt 内容
         for i, elem in enumerate(dom_list):
             elem_txt = elem.get("txt", "")
-            elem_id = elem.get("id", "")
-            if target_str in str(elem_txt) or target_str in str(elem_id):
+            elem_selector = elem.get("selector", "")
+            if target_str in str(elem_txt) or target_str in str(elem_selector):
                 return i
         
         return 0  # 默认第一个
@@ -254,7 +260,7 @@ class ScreenDataset(Dataset):
   
         # 只保留有 id 或可见的元素，重新编号
         valid_elements = [(i, e) for i, e in enumerate(dom_list) 
-                        if e.get('id') or e.get('visible')]
+                        if e.get('selector') or e.get('visible')]
         
         # 创建映射：原始 idx -> 新索引
         idx_map = {orig_idx: new_idx for new_idx, (orig_idx, _) in enumerate(valid_elements)}
@@ -310,7 +316,7 @@ class ScreenDataset(Dataset):
         # 将 DOM 转为文本
         text_parts = []
         for elem in dom_list[:256]:  # 截断
-            desc = f"{elem.get('t', '')} {elem.get('id', '')} {elem.get('txt', '')[:20]}"
+            desc = f"{elem.get('t', '')} {elem.get('selector', '')} {elem.get('txt', '')[:20]}"
             text_parts.append(desc.strip())
         
         full_text = " | ".join(text_parts)

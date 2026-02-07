@@ -14,7 +14,7 @@ screenbert/
 export HF_ENDPOINT=https://hf-mirror.com
 export HF_HOME="/root/autodl-tmp/hf_cache"  # 指定缓存目录
 
-python train.py --data data/arrow --output ckpt/screenbert --epoch 3 --batch 8 --fp16
+python train.py --data data/arrow --output ckpt/screenbert --epoch 50 --batch 8 --fp16
 ```
 
 ### 推理命令
